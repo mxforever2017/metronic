@@ -1,0 +1,65 @@
+<script type="text/html" id="koPagedGrid">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr data-bind="foreach:{data:columns,as:'col'}">
+            <!-- ko if:$index()==0 -->
+            <th style="width: 10px">
+                <input type="checkbox" class="m-wrap group-checkbox"/>
+            </th>
+            <!-- /ko -->
+            <th data-bind="text:col.name,css:col.span,style:col.style">
+            </th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach:{data:data,as:'row',afterRender:$root.afterRender}">
+        <tr data-bind="foreach:{data:$parent.columns,as:'col'}">
+            <!-- ko if:$index()==0 -->
+            <td>
+                <input type="checkbox" class="m-wrap single-checkbox"
+                       data-bind="checkedValue:row,checked:$root.selected"/>
+            </td>
+            <!-- /ko -->
+            <td data-bind="koPagedField:col.field(row)">
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row-fluid">
+        <div class="span6">
+            <h5 data-bind="text:pageDesc"></h5>
+        </div>
+        <div class="span6">
+            <div class="pagination pagination-right" style="margin: 0px">
+                <ul data-bind="foreach:pages">
+                    <!-- ko if:$index() == 0 -->
+                    <li>
+                        <a href="#" data-bind="click:$root.goPage">&lt;</a>
+                    </li>
+                    <!-- /ko -->
+                    <!-- ko if:$index() > 0 && $index() < $root.pages().length-1 -->
+                    <li>
+                        <a href="#" data-bind="css:{active:$root.isCurrent()},click:$root.goPage"><span
+                                data-bind="text:$data"></span></a>
+                    </li>
+                    <!-- /ko -->
+                    <!-- ko if:$index() == $root.pages().length -1 -->
+                    <li>
+                        <a href="#" data-bind="css:{disable:!$root.isNext()},click:$root.goPage">&gt;</a>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+                <ul style="vertical-align: top">
+                    <li>
+                        <a href="#" data-bind="click:goJump">转到</a>
+                    </li>
+                    <li>
+                        <input type="text" style="width: 20px" data-bind="value:page"/>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</script>
