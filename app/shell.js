@@ -1,4 +1,4 @@
-﻿define(function(requre) {
+﻿define(function(require) {
 	var ko = require("knockout");
 	var router = require("plugins/router");
 	var $ = require('jquery');

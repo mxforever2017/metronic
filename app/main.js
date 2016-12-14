@@ -11,12 +11,16 @@
         'jquery': '../lib/jquery/jquery-1.9.1',
         "jquery-plugins": "../lib/jquery/js/plugins",
         'metronic': '../lib/metronic/js/metronic',
+        'index': '../lib/metronic/js/index',
         'proxy': 'proxy',
     },
     shim: {
     	"jquery-plugins": {
             deps: ["jquery"],
             exports: "jquery"
+        },
+        "knockout-plugins": {
+            deps: ["knockout"]
         },
         "bootstrap": {
             deps: ["jquery"]
@@ -64,6 +68,9 @@
         "jquery-plugins/fullcalendar.min": {
             deps: ["jquery", "jquery-plugins/jquery.flot"]
         },
+        "knockout-plugins/knockout.validation": {
+            deps: ["knockout"]
+        },
         "metronic": {
             deps: [
                 "jquery",
@@ -80,13 +87,21 @@
                 "jquery-plugins/jquery.flot.resize",
                 "jquery-plugins/jquery.flot.stack",
                 "jquery-plugins/fullcalendar.min",
+                "jquery-plugins/daterangepicker",
                 "jquery-plugins/json2",
                 "jquery-plugins/highcharts.src",
                 "bootstrap",
                 "bootstrap-plugins/bootstrap-datepicker",
                 "bootstrap-plugins/bootstrap-datetimepicker",
-                "bootstrap-plugins/bootstrap-timepicker"
+                "bootstrap-plugins/bootstrap-timepicker",
+                "knockout-plugins/knockout.validation",
+                "knockout-plugins/knockout-extend",
             ]
+        },
+        "index": {
+        	deps: [
+        		"../lib/metronic/js/date"
+        	]
         }
     }
 });
@@ -106,6 +121,18 @@ define(function(require) {
 
     app.title = 'Durandal Samples';
     
+    ko.validation.init({
+        insertMessages: false,
+        decorateInputElement: true,
+        decorateElement: true,
+        errorMessageClass: "text-error",
+        errorElementClass: "error",
+        errorsAsTitle: true,
+        errorClass: "error",
+        messagesOnModified: true,
+        decorateElementOnModified: true
+    });
+    
     //specify which plugins to install and their configuration
     app.configurePlugins({
         router:true,
@@ -117,7 +144,7 @@ define(function(require) {
 
     app.start().then(function () {
         //viewLocator.useConvention();
-        var module = 'shell';
+        var module = 'login';
         app.setRoot(module,"entrance");
     });
 	
