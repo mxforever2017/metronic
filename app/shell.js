@@ -97,7 +97,7 @@
 				},]
 			}];
 			self.username('蜡笔小新');
-			self.copyright('小新@xiaoxin.com');
+			self.copyright('xiaoxin@shnnosuke.com');
 			self.menus(menu);
 			var map = [];
 			buildMap(menu, map);
@@ -110,6 +110,10 @@
 			});
 			router.map(map).buildNavigationModel();
 			return router.activate();
+		};
+		self.logout = function () {
+			localStorage.removeItem('isLogin');
+			window.location.href = '/';
 		};
 		self.compositionComplete = function(child) {
 			metronic.init();

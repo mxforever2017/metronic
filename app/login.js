@@ -1,33 +1,126 @@
-define(function (require) {
-    var $ = require("jquery");
-    var ko = require("knockout");
-    var app = require("durandal/app");
+define(function(require) {
+	var $ = require("jquery");
+	var ko = require("knockout");
+	var app = require("durandal/app");
+	var proxy = require("proxy");
+	var backstretch = require("backstretch");
+	
+	var getCurrentDb = function() {
+		var db = openDatabase("myDb", "1.0", "it's to save demo data!", 1024 * 1024); ;
+        return db;
+	};
+	
+	var createTable = function () {
+		var db = getCurrentDb();
+		db.transaction(function(trans) {
+			trans.executeSql("create table if not exists Demo(uName text null, pasword text null, email text null)", [], function(trans, result) {
+				}, function(trans, message) {
+				});
+		});
+	};
+	
+	var insertValue = function (data) {
+		
+	};
 
-    var Login = function () {
-        var self = this;
-        self.copyright = ko.observable("");
-        
-        self.user = {
-            username: ko.observable("").extend({required: {params: true, message: "请输入用户帐号"}}),
-            password: ko.observable("")
-        };
-        self.errors = ko.validation.group(self.user);
-        self.login = function () {
-        	if (self.errors.length == 0) {
-        		if (self.user.username() == "admin" && self.user.password() == "admin") {
-	            	app.setRoot("shell","entrance")
-	            }
-        	}
-            
-        };
-        self.compositionComplete = function (child) {
-            $('.login-form input').keypress(function (e) {
-                if (e.which == 13) {
-                    self.login();
-                }
-            });
-        };
-    };
-    return new Login();
-
+	var Login = function() {
+		var self = this;
+		self.copyright = ko.observable("xiaoxin@shnnosuke.com");
+		self.user = {
+			username: ko.observable("").extend({
+				required: {
+					params: true,
+					message: "Username is required"
+				}
+			}),
+			password: ko.observable("").extend({
+				required: {
+					params: true,
+					message: "Password is required"
+				}
+			})
+		};
+		self.registerUser = {
+			username: ko.observable("").extend({
+				required: {
+					params: true,
+					message: "Username is required"
+				}
+			}),
+			password: ko.observable("").extend({
+				required: {
+					params: true,
+					message: "Password is required"
+				}
+			}),
+			email: ko.observable("").extend({
+				required: {
+					params: true,
+					message: "email is required"
+				}
+			}),
+			repassword: ko.observable("").extend({
+				required: {
+					params: true,
+					message: "repassword is required"
+				}
+			})
+		}
+		self.errors = ko.validation.group(self.user);
+		self.registererrors = ko.validation.group(self.registerUser);
+		self.login = function() {
+			if(self.errors().length == 0) {
+				if(self.user.username() == 'admin' || self.user.password() == 'admin') {
+					localStorage.setItem('isLogin', true);
+					app.setRoot("shell", "entrance");
+				}
+			} else {
+				self.errors.showAllMessages();
+			}
+		};
+		self.register = function() {
+			if(self.registererrors().length == 0) {
+				
+			} else {
+				self.registererrors.showAllMessages();
+			}
+		};
+		self.registerShow = function() {
+			$('.login-form').hide();
+			$('.register-form').show(500);
+		};
+		self.registerHide = function() {
+			$('.login-form').show(500);
+			$('.register-form').hide();
+		};
+		self.forgotPassShow = function() {
+			$('.login-form').hide();
+			$('.forget-form').show(500);
+		};
+		self.forgotPassHide = function() {
+			$('.login-form').show(500);
+			$('.forget-form').hide();
+		};
+		self.compositionComplete = function(child) {
+			var $this = $(child);
+			$(".checkboxes", $this).uniform();
+			$('.login-form input').keypress(function(e) {
+				if(e.which == 13) {
+					self.login();
+				}
+			});
+			$.backstretch([
+		        "../lib/metronic/image/bg/1.jpg",
+		        "../lib/metronic/image/bg/2.jpg",
+		        "../lib/metronic/image/bg/3.jpg",
+		        "../lib/metronic/image/bg/4.jpg"
+		        ], {
+		          fade: 1000,
+		          duration: 3000
+		   		}
+		    );
+			createTable();
+		};
+	};
+	return new Login();
 });
