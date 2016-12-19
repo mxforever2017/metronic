@@ -13,6 +13,7 @@
         'metronic': '../lib/metronic/js/metronic',
         'index': '../lib/metronic/js/index',
         'proxy': 'proxy',
+        'backstretch': '../lib/jquery/js/plugins/jquery.backstretch.min'
     },
     shim: {
     	"jquery-plugins": {
@@ -28,7 +29,6 @@
         "bootstrap-plugins/bootstrap-datepicker": {
             deps: ["bootstrap"]
         },
-
         "bootstrap-plugins/bootstrap-datetimepicker": {
             deps: ["bootstrap"]
         },
@@ -46,6 +46,12 @@
         },
         "jquery-plugins/jquery.uniform.min": {
             deps: ["jquery"]
+        },
+        "jquery-plugins/jquery-ui-1.10.1.custom.min": {
+            deps: ["jquery"]
+        },
+        "jquery-plugins/jquery.backstretch.min": {
+        	deps: ["jquery"]
         },
         "jquery-plugins/jquery.fileDownload": {
             deps: ["jquery"]
@@ -137,14 +143,13 @@ define(function(require) {
     app.configurePlugins({
         router:true,
         dialog: true,
-//      widget: {
-//          kinds: ['expander']
-//      }
     });
 
     app.start().then(function () {
-        //viewLocator.useConvention();
         var module = 'login';
+        if (localStorage.getItem('isLogin') != null) {
+        	module = 'shell';
+        }
         app.setRoot(module,"entrance");
     });
 	
