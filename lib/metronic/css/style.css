@@ -461,8 +461,15 @@ Header and header elements.
 Page container
 ***/
 .page-container {
-  margin: 0px;
-  padding: 0px;
+	/*position: absolute;
+  	left: 0;
+    right: 0;
+    top: 42px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;*/
+  	margin: 0px;
+  	padding: 0px;
 }
 
 .page-header-fixed .page-container {

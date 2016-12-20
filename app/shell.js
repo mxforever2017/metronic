@@ -30,9 +30,11 @@
 		self.keyword = ko.observable("");
 		self.router = router;
 		self.menus = ko.observableArray([]);
-		self.myFunction = function (data,event) { 
+		
+		self.myFunction = function () {
 			console.log($(this));
-		}
+		};
+		
 		self.activate = function() {
 			var menu = [{
 				moduleId: "hello/index",

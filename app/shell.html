@@ -62,13 +62,13 @@
 				<!-- END RESPONSIVE QUICK SEARCH FORM -->
 			</li>
 			<!-- /ko -->
-			<li class="" data-bind = "css:{'start active':$data.isActive}">
+			<li class="" data-bind = "">
 				<a href="#" data-bind = "attr:{'href':$data.hash}">
 					<i class="icon-home"></i>
 					<span class="title" data-bind="text:$data.title">一级菜单</span>
-					<!-- ko if:$data.isActive -->
+					
 					<span class="selected"></span>
-					<!-- /ko -->
+					
 				</a>
 				<!-- ko if:$data.children -->
 				<ul class="sub-menu" data-bind = "foreach:$data.children" >
