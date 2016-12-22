@@ -6,14 +6,12 @@
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-3.4.0',
         "knockout-plugins": "../lib/knockout/js/plugins",
-        'bootstrap': '../lib/metronic/js/bootstrap.min',
+        'bootstrap': '../lib/bootstrap/js/bootstrap.min',
         "bootstrap-plugins": "../lib/bootstrap/js/plugins",
         'jquery': '../lib/jquery/jquery-1.9.1',
         "jquery-plugins": "../lib/jquery/js/plugins",
         'metronic': '../lib/metronic/js/metronic',
-        'index': '../lib/metronic/js/index',
-        'proxy': 'proxy',
-        'backstretch': '../lib/jquery/js/plugins/jquery.backstretch.min'
+        'proxy': 'proxy'
     },
     shim: {
     	"jquery-plugins": {
@@ -34,6 +32,9 @@
         },
         "bootstrap-plugins/bootstrap-timepicker": {
             deps: ["jquery", "bootstrap"]
+        },
+        "bootstrap-plugins/bootstrap-switch": {
+        	deps: ["bootstrap"]
         },
         "jquery-plugins/jquery.tmpl": {
             deps: ["jquery"]
@@ -74,6 +75,9 @@
         "jquery-plugins/fullcalendar.min": {
             deps: ["jquery", "jquery-plugins/jquery.flot"]
         },
+        "jquery-plugins/jquery.backstretch.min": {
+        	deps: ["jquery"]
+        },
         "knockout-plugins/knockout.validation": {
             deps: ["knockout"]
         },
@@ -82,31 +86,17 @@
                 "jquery",
                 "jquery-plugins/jquery.slimscroll.min",
                 "jquery-plugins/jquery.blockui.min",
-                "jquery-plugins/jquery.uniform.min",
                 "jquery-plugins/jquery.validate.min",
-                "jquery-plugins/jquery.fileupload",
-                "jquery-plugins/jquery.fileDownload",
-                "jquery-plugins/jquery-ui-1.10.1.custom.min",
-                "jquery-plugins/jquery.PrintArea",
-                "jquery-plugins/jquery.flot",
-                "jquery-plugins/jquery.flot.pie",
-                "jquery-plugins/jquery.flot.resize",
-                "jquery-plugins/jquery.flot.stack",
-                "jquery-plugins/fullcalendar.min",
                 "jquery-plugins/json2",
                 "bootstrap",
                 "bootstrap-plugins/bootstrap-datepicker",
                 "bootstrap-plugins/bootstrap-datetimepicker",
                 "bootstrap-plugins/bootstrap-timepicker",
+                "bootstrap-plugins/bootstrap-switch",
                 "knockout-plugins/knockout.validation",
                 "knockout-plugins/knockout-extend",
             ]
         },
-        "index": {
-        	deps: [
-        		"../lib/metronic/js/date"
-        	]
-        }
     }
 });
 

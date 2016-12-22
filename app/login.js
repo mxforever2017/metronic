@@ -2,8 +2,10 @@ define(function(require) {
 	var $ = require("jquery");
 	var ko = require("knockout");
 	var app = require("durandal/app");
+	var router = require("plugins/router");
 	var proxy = require("proxy");
-	var backstretch = require("backstretch");
+	var backstretch = require("jquery-plugins/jquery.backstretch.min");
+	var uniform = require("jquery-plugins/jquery.uniform.min");
 	
 	var getCurrentDb = function() {
 		var db = openDatabase("myDb", "1.0", "it's to save demo data!", 1024 * 1024); ;
@@ -72,6 +74,7 @@ define(function(require) {
 			if(self.errors().length == 0) {
 				if(self.user.username() == 'admin' || self.user.password() == 'admin') {
 					localStorage.setItem('isLogin', true);
+					router.deactivate();
 					app.setRoot("shell", "entrance");
 				}
 			} else {
