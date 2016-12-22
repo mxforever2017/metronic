@@ -110,7 +110,7 @@ define(function(require) {
 	var metronic = require("metronic");
 	
 	//>>excludeStart("build", true);
-    system.debug(true);
+    system.debug(false); //设置是否是调试模式
     //>>excludeEnd("build");
 
     app.title = 'Durandal Samples';

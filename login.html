@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+	<!-- BEGIN HEAD -->
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Metronic | User Login 4</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta content="" name="description" />
+		<meta content="" name="author" />
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-responsive.min.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/metronic/css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css"/>
+		<link href="lib/metronic/css/style-metro.css" rel="stylesheet" type="text/css"/>
+		<link href="lib/metronic/css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="lib/metronic/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+		<link href="lib/metronic/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+		<link href="lib/metronic/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+		<link rel="shortcut icon" href="9.ico" />
+	</head>
+	<!-- END HEAD -->
+
+	<body class=" login">
+		<!-- BEGIN LOGO -->
+		<div class="logo">
+			<img src="lib/metronic/image/logo-big.png" alt="" />
+		</div>
+
+		<!-- END LOGO -->
+
+		<!-- BEGIN LOGIN -->
+
+		<div class="content">
+			<!-- BEGIN LOGIN FORM -->
+			<form class="form-vertical login-form" method="post">
+				<h3 class="form-title">Login to your account</h3>
+				<div class="control-group" data-bind="validationElement:user.username">
+					<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+					<label class="control-label visible-ie8 visible-ie9">用户帐号</label>
+					<div class="controls">
+						<div class="input-icon left">
+							<i class="icon-user"></i>
+							<input class="m-wrap placeholder-no-fix" type="text" placeholder="Username" name="username" data-bind="value:user.username,valueUpdate:'afterkeydown'" />
+						</div>
+						<label class="text-error" data-bind="validationMessage:user.username"></label>
+					</div>
+				</div>
+				<div class="control-group" data-bind="validationElement:user.password">
+					<label class="control-label visible-ie8 visible-ie9">用户密码</label>
+					<div class="controls">
+						<div class="input-icon left">
+							<i class="icon-lock"></i>
+							<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" data-bind="value:user.password,valueUpdate:'afterkeydown'" />
+						</div>
+						<label class="text-error" data-bind="validationMessage:user.password"></label>
+					</div>
+				</div>
+				<div class="form-actions">
+					<label class="checkbox">
+				<input type="checkbox" class="checkboxes" name="remember" value="1"/> Remember me
+			</label>
+					<button type="button" class="btn green pull-right" data-bind="click:login">
+				Login <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+				</div>
+				<div class="forget-password">
+					<h4>Forgot your password ?</h4>
+					<p>
+						no worries, click
+						<a data-bind="click:forgotPassShow" href="javascript:;" class="" id="forget-password">here</a>
+						to reset your password.
+					</p>
+				</div>
+				<div class="create-account">
+					<p>
+						Don't have an account yet ?&nbsp;
+						<a data-bind="click:registerShow" href="javascript:;" id="register-btn" class="">Create an account</a>
+					</p>
+				</div>
+			</form>
+			<!-- END LOGIN FORM -->
+			<!-- BEGIN FORGOT PASSWORD FORM -->
+			<form class="form-vertical forget-form" action="post">
+				<h3 class="">Forget Password ?</h3>
+				<p>Enter your e-mail address below to reset your password.</p>
+				<div class="control-group">
+					<div class="controls">
+						<div class="input-icon left">
+							<i class="icon-envelope"></i>
+							<input class="m-wrap placeholder-no-fix" type="text" placeholder="Email" name="email" />
+						</div>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button data-bind="click:forgotPassHide" type="button" id="back-btn" class="btn">
+				<i class="m-icon-swapleft"></i> Back
+			</button>
+					<button type="button" class="btn green pull-right">
+				Submit <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+				</div>
+			</form>
+			<!-- END FORGOT PASSWORD FORM -->
+			<!-- BEGIN REGISTRATION FORM -->
+			<form class="form-vertical register-form" action="post">
+				<h3 class="">Sign Up</h3>
+				<p>Enter your account details below:</p>
+				<div class="control-group" data-bind="validationElement:registerUser.username">
+					<label class="control-label visible-ie8 visible-ie9">Username</label>
+					<div class="controls">
+						<div class="input-icon left">
+							<i class="icon-user"></i>
+							<input class="m-wrap placeholder-no-fix" data-bind="value:registerUser.username,valueUpdate:'afterkeydown'" type="text" placeholder="Username" name="username" />
+						</div>
+						<label class="text-error" data-bind="validationMessage:registerUser.username"></label>
+					</div>
+				</div>
+				<div class="control-group" data-bind="validationElement:registerUser.password">
+					<label class="control-label visible-ie8 visible-ie9">Password</label>
+					<div class="controls">
+						<div class="input-icon left">
+							<i class="icon-lock"></i>
+							<input class="m-wrap placeholder-no-fix" data-bind="value:registerUser.password,valueUpdate:'afterkeydown'" type="password" id="register_password" placeholder="Password" name="password" />
+						</div>
+						<label class="text-error" data-bind="validationMessage:registerUser.password"></label>
+					</div>
+				</div>
+				<div class="control-group" data-bind="validationElement:registerUser.repassword">
+					<label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
+					<div class="controls">
+						<div class="input-icon left">
+							<i class="icon-ok"></i>
+							<input class="m-wrap placeholder-no-fix" data-bind="value:registerUser.repassword,valueUpdate:'afterkeydown'" type="password" placeholder="Re-type Your Password" name="rpassword" />
+						</div>
+						<label class="text-error" data-bind="validationMessage:registerUser.repassword"></label>
+					</div>
+				</div>
+				<div class="control-group" data-bind="validationElement:registerUser.email">
+					<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+
+					<label class="control-label visible-ie8 visible-ie9">Email</label>
+
+					<div class="controls">
+
+						<div class="input-icon left">
+
+							<i class="icon-envelope"></i>
+
+							<input class="m-wrap placeholder-no-fix" data-bind="value:registerUser.email,valueUpdate:'afterkeydown'" type="text" placeholder="Email" name="email" />
+
+						</div>
+						<label class="text-error" data-bind="validationMessage:registerUser.email"></label>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<label class="checkbox">
+					<input type="checkbox" class="checkboxes" name="tnc"/> I agree to the Terms of Service and Privacy Policy
+				</label>
+						<div id="register_tnc_error"></div>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button data-bind="click:registerHide" id="register-back-btn" type="button" class="btn">
+				<i class="m-icon-swapleft"></i>  Back
+			</button>
+					<button data-bind="click:register" type="button" id="register-submit-btn" class="btn green pull-right">
+				Sign Up <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+				</div>
+			</form>
+			<!-- END REGISTRATION FORM -->
+		</div>
+
+		<!-- END LOGIN -->
+
+		<!-- BEGIN COPYRIGHT -->
+
+		<div class="copyright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+			<span data-bind="text:copyright"></span> &copy;
+		</div>
+
+		<!-- END COPYRIGHT -->
+
+		<!--[if lt IE 9]>
+		<script src="../assets/global/plugins/respond.min.js"></script>
+		<script src="../assets/global/plugins/excanvas.min.js"></script> 
+		<![endif]-->
+		<script src="lib/knockout/knockout-3.4.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/require/require.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

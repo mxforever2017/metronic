@@ -31,10 +31,6 @@
 		self.router = router;
 		self.menus = ko.observableArray([]);
 		
-		self.myFunction = function () {
-			console.log($(this));
-		};
-		
 		self.activate = function() {
 			var menu = [{
 				moduleId: "hello/index",
@@ -121,6 +117,5 @@
 			metronic.init();
 		};
 	};
-
 	return new Shell();
 });

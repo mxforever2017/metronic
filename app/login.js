@@ -6,24 +6,6 @@ define(function(require) {
 	var proxy = require("proxy");
 	var backstretch = require("jquery-plugins/jquery.backstretch.min");
 	var uniform = require("jquery-plugins/jquery.uniform.min");
-	
-	var getCurrentDb = function() {
-		var db = openDatabase("myDb", "1.0", "it's to save demo data!", 1024 * 1024); ;
-        return db;
-	};
-	
-	var createTable = function () {
-		var db = getCurrentDb();
-		db.transaction(function(trans) {
-			trans.executeSql("create table if not exists Demo(uName text null, pasword text null, email text null)", [], function(trans, result) {
-				}, function(trans, message) {
-				});
-		});
-	};
-	
-	var insertValue = function (data) {
-		
-	};
 
 	var Login = function() {
 		var self = this;
@@ -104,6 +86,7 @@ define(function(require) {
 			$('.login-form').show(500);
 			$('.forget-form').hide();
 		};
+		
 		self.compositionComplete = function(child) {
 			var $this = $(child);
 			$(".checkboxes", $this).uniform();
@@ -121,8 +104,7 @@ define(function(require) {
 		          fade: 1000,
 		          duration: 3000
 		   		}
-		    );
-			createTable();
+		   );
 		};
 	};
 	return new Login();
