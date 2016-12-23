@@ -3,8 +3,7 @@
 	var router = require("plugins/router");
 	var $ = require('jquery');
 	var metronic = require("metronic");
-	
-	
+
 	var buildMap = function(array, map) {
 		for(var i = 0; i < array.length; i++) {
 			map.push(array[i]);
@@ -30,9 +29,9 @@
 		self.keyword = ko.observable("");
 		self.router = router;
 		self.menus = ko.observableArray([]);
-		
+
 		self.activate = function() {
-			if (localStorage.getItem("isLogin") == null) {
+			if(localStorage.getItem("isLogin") == null) {
 				location.href = "../login.html"
 			}
 			var menu = [{
@@ -55,6 +54,11 @@
 					nav: 1,
 					route: "xheditor",
 					title: "Xheditor"
+				}, {
+					moduleId: "UI Features/Bootstrap Sweet Alerts/index",
+					nav: 1,
+					route: "ui_sweetalert",
+					title: "Bootstrap Sweet Alerts"
 				}]
 			}];
 			self.username('蜡笔小新');
@@ -72,7 +76,7 @@
 			router.map(map).buildNavigationModel();
 			return router.activate();
 		};
-		self.logout = function () {
+		self.logout = function() {
 			localStorage.removeItem('isLogin');
 			window.location.href = '/';
 		};
