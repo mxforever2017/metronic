@@ -32,6 +32,9 @@
 		self.menus = ko.observableArray([]);
 		
 		self.activate = function() {
+			if (localStorage.getItem("isLogin") == null) {
+				location.href = "../login.html"
+			}
 			var menu = [{
 				moduleId: "hello/index",
 				nav: 1,
@@ -48,51 +51,11 @@
 					route: "general",
 					title: "General"
 				}, {
-					moduleId: "ko/index",
-					nav: 2,
-					route: "modal_index",
-					title: "Buttons"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "Enhanced Modals"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "Tabs & Accordions"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "jQuery UI Components"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "Sliders"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "Tiles"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "Typography"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "Tree View"
-				},{
-					moduleId: "ko/index",
-					nav: 3,
-					route: "modal_index",
-					title: "Nestable List"
-				},]
+					moduleId: "UI Features/XHEDITOR/index",
+					nav: 1,
+					route: "xheditor",
+					title: "Xheditor"
+				}]
 			}];
 			self.username('蜡笔小新');
 			self.copyright('xiaoxin@shnnosuke.com');

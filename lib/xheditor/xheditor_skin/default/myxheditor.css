@@ -1,0 +1,13 @@
+.xheDialog label {
+	display: inline-block !important;
+}
+
+
+@media  (max-width: 480px) {
+	#xhePanel {
+		left: 10px !important;
+	}
+	#xheShadow {
+		left: 12px !important;
+	}
+}

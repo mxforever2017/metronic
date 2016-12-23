@@ -8,12 +8,20 @@
         "knockout-plugins": "../lib/knockout/js/plugins",
         'bootstrap': '../lib/bootstrap/js/bootstrap.min',
         "bootstrap-plugins": "../lib/bootstrap/js/plugins",
+        "cab": "../js",
         'jquery': '../lib/jquery/jquery-1.9.1',
         "jquery-plugins": "../lib/jquery/js/plugins",
         'metronic': '../lib/metronic/js/metronic',
-        'proxy': 'proxy'
+        'editor': '../lib/xheditor/xheditor-1.2.2.min',
+        'zh': '../lib/xheditor/xheditor_lang/zh-cn'
     },
     shim: {
+    	'editor': {
+            exports: 'XHEDITOR'
+       	},
+        'zh': {
+            deps: ['editor']
+        },
     	"jquery-plugins": {
             deps: ["jquery"],
             exports: "jquery"
@@ -134,11 +142,7 @@ define(function(require) {
     });
 
     app.start().then(function () {
-        var module = 'login';
-        if (localStorage.getItem('isLogin') != null) {
-        	module = 'shell';
-        }
-        app.setRoot(module,"entrance");
+        app.setRoot("shell","entrance");
     });
 	
 });
