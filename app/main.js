@@ -44,6 +44,12 @@
         "bootstrap-plugins/bootstrap-switch": {
         	deps: ["bootstrap"]
         },
+        "bootstrap-plugins/bootstrap-sweet-alert/sweetalert": {
+        	deps: ["bootstrap-plugins/bootstrap-sweet-alert/ui-sweetalert.min"]
+        },
+        "bootstrap-plugins/bootstrap-sweet-alert/ui-sweetalert.min": {
+        	deps: ["jquery"]
+        },
         "jquery-plugins/jquery.tmpl": {
             deps: ["jquery"]
         },
