@@ -59,6 +59,11 @@
 					nav: 1,
 					route: "ui_sweetalert",
 					title: "Bootstrap Sweet Alerts"
+				}, {
+					moduleId: "UI Features/Dialog/index",
+					nav: 1,
+					route: "dialog",
+					title: "Dialog"
 				}]
 			}];
 			self.username('蜡笔小新');
