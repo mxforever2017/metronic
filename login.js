@@ -156,15 +156,15 @@ $(function() {
 		});
 	});
 
-	$.backstretch([
-		"lib/metronic/image/bg/1.jpg",
-		"lib/metronic/image/bg/2.jpg",
-		"lib/metronic/image/bg/3.jpg",
-		"lib/metronic/image/bg/4.jpg"
-	], {
-		fade: 1000,
-		duration: 3000
-	});
+//	$.backstretch([
+//		"lib/metronic/image/bg/1.jpg",
+//		"lib/metronic/image/bg/2.jpg",
+//		"lib/metronic/image/bg/3.jpg",
+//		"lib/metronic/image/bg/4.jpg"
+//	], {
+//		fade: 1000,
+//		duration: 3000
+//	});
 
 	ko.applyBindings(login, $('.login-form')[0]);
 	ko.applyBindings(login, $('.forget-form')[0]);
