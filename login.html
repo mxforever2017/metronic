@@ -1,195 +1,133 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <html lang="en">
 	<!--<![endif]-->
 	<!-- BEGIN HEAD -->
 
 	<head>
+        
+
+		
 		<meta charset="utf-8" />
 		<title>Metronic | User Login</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<meta content="" name="description" />
 		<meta content="" name="author" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-responsive.min.css" />
-		<link rel="stylesheet" type="text/css" href="lib/metronic/css/login.css" />
-		<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css" />
-		<link href="lib/metronic/css/style-metro.css" rel="stylesheet" type="text/css" />
-		<link href="lib/metronic/css/style.css" rel="stylesheet" type="text/css" />
-		<link href="lib/metronic/css/style-responsive.css" rel="stylesheet" type="text/css" />
-		<link href="lib/metronic/css/default.css" rel="stylesheet" type="text/css" id="style_color" />
-		<!--<link href="lib/metronic/css/uniform.default.css" rel="stylesheet" type="text/css"/>-->
+		<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/simple-line-icons/simple-line-icons.min.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-switch.css"/>
 		<link rel="stylesheet" type="text/css" href="lib/metronic/css/components.min.css" />
-		<link rel="shortcut icon" href="9.ico" />
+		<link rel="stylesheet" type="text/css" href="lib/metronic/css/plugins.css" />
+		<link rel="stylesheet" type="text/css" href="lib/plugins/select2/css/select2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/plugins/select2/css/select2-bootstrap.min.css"/>
+        <link href="lib/metronic/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <link href="lib/metronic/css/login-5.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="9.ico" />
 	</head>
 	<!-- END HEAD -->
 
 	<body class=" login">
-		<!-- BEGIN LOGO -->
-		<div class="logo">
-			<img src="lib/metronic/image/logo-big.png" alt="" />
-		</div>
-
-		<!-- END LOGO -->
-
-		<!-- BEGIN LOGIN -->
-
-		<div class="content">
-			<!-- BEGIN LOGIN FORM -->
-			<form class="form-vertical login-form" method="post">
-				<h3 class="form-title">Login to your account</h3>
-				<div class="control-group">
-					<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-					<label class="control-label visible-ie8 visible-ie9">用户帐号</label>
-					<div class="controls">
-						<div class="input-icon left">
-							<i class="icon-user"></i>
-							<input class="m-wrap placeholder-no-fix" type="text" placeholder="Username" name="username" data-bind="value:userName,valueUpdate:'afterkeydown'" />
-						</div>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label visible-ie8 visible-ie9">用户密码</label>
-					<div class="controls">
-						<div class="input-icon left">
-							<i class="icon-lock"></i>
-							<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" data-bind="value:password,valueUpdate:'afterkeydown'" />
-						</div>
-					</div>
-				</div>
-				<div class="form-actions">
-					<label class="rememberme mt-checkbox mt-checkbox-outline" style="margin-top: 10px;">
-                        <input data-bind = "checked: remberCipher" type="checkbox" name="remember" value="1" /> Remember me
-                        <span></span>
-                   </label>
-					<button type="button" class="btn green pull-right" data-bind="click:login">
-				Login <i class="m-icon-swapright m-icon-white"></i>
-			</button>
-				</div>
-				<div class="forget-password">
-					<h4>Forgot your password ?</h4>
-					<p>
-						no worries, click
-						<a data-bind="click:forgotPassShow" href="javascript:;" class="" id="forget-password">here</a>
-						to reset your password.
-					</p>
-				</div>
-				<div class="create-account">
-					<p>
-						Don't have an account yet ?&nbsp;
-						<a data-bind="click:registerShow" href="javascript:;" id="register-btn" class="">Create an account</a>
-					</p>
-				</div>
-			</form>
-			<!-- END LOGIN FORM -->
-			<!-- BEGIN FORGOT PASSWORD FORM -->
-			<form class="form-vertical forget-form" action="post">
-				<h3 class="">Forget Password ?</h3>
-				<p>Enter your e-mail address below to reset your password.</p>
-				<div class="control-group">
-					<div class="controls">
-						<div class="input-icon left">
-							<i class="icon-envelope"></i>
-							<input class="m-wrap placeholder-no-fix" type="text" placeholder="Email" name="email" />
-						</div>
-					</div>
-				</div>
-				<div class="form-actions">
-					<button data-bind="click:forgotPassHide" type="button" id="back-btn" class="btn">
-					<i class="m-icon-swapleft"></i> Back
-					</button>
-					<button type="button" class="btn green pull-right">
-						Submit <i class="m-icon-swapright m-icon-white"></i>
-					</button>
-				</div>
-			</form>
-			<!-- END FORGOT PASSWORD FORM -->
-			<!-- BEGIN REGISTRATION FORM -->
-			<form class="form-vertical register-form" action="post">
-				<h3 class="">Sign Up</h3>
-				<p>Enter your account details below:</p>
-				<div class="control-group">
-					<label class="control-label visible-ie8 visible-ie9">Username</label>
-					<div class="controls">
-						<div class="input-icon left">
-							<i class="icon-user"></i>
-							<input class="m-wrap placeholder-no-fix" type="text" placeholder="Username" name="username" />
-						</div>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label visible-ie8 visible-ie9">Password</label>
-					<div class="controls">
-						<div class="input-icon left">
-							<i class="icon-lock"></i>
-							<input class="m-wrap placeholder-no-fix" type="password" id="register_password" placeholder="Password" name="password" />
-						</div>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-					<div class="controls">
-						<div class="input-icon left">
-							<i class="icon-ok"></i>
-							<input class="m-wrap placeholder-no-fix" type="password" placeholder="Re-type Your Password" name="rpassword" />
-						</div>
-					</div>
-				</div>
-				<div class="control-group">
-					<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-
-					<label class="control-label visible-ie8 visible-ie9">Email</label>
-
-					<div class="controls">
-						<div class="input-icon left">
-							<i class="icon-envelope"></i>
-							<input class="m-wrap placeholder-no-fix" type="text" placeholder="Email" name="email" />
-						</div>
-					</div>
-				</div>
-				<div class="control-group">
-					<div class="controls">
-						<label class="rememberme mt-checkbox mt-checkbox-outline">
-	                        <input type="checkbox" name="remember" value="1" /> I agree to the Terms of Service and Privacy Policy
-	                        <span></span>
-                        </label>
-						<div id="register_tnc_error"></div>
-					</div>
-				</div>
-				<div class="form-actions">
-					<button data-bind="click:registerHide" id="register-back-btn" type="button" class="btn">
-				<i class="m-icon-swapleft"></i>  Back
-			</button>
-					<button type="button" id="register-submit-btn" class="btn green pull-right">
-				Sign Up <i class="m-icon-swapright m-icon-white"></i>
-			</button>
-				</div>
-			</form>
-			<!-- END REGISTRATION FORM -->
-		</div>
-
-		<!-- END LOGIN -->
-
-		<!-- BEGIN COPYRIGHT -->
-
-		<div class="copyright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
-			Copyright&copy; 2016xiaoxin@shnnosuke.com
-		</div>
-
-		<!-- END COPYRIGHT -->
+		<!-- BEGIN : LOGIN PAGE 5-1 -->
+        <div class="user-login-5">
+            <div class="row bs-reset">
+                <div class="col-md-6 bs-reset mt-login-5-bsfix">
+                    <div class="login-bg" style="background-image:url(lib/metronic/image/login/bg1.jpg)">
+                        <img class="login-logo" src="lib/metronic/image/login/logo.png" /> </div>
+                </div>
+                <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
+                    <div class="login-content">
+                        <h1>Metronic Admin Login</h1>
+                        <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
+                        <form action="javascript:;" class="login-form" method="post">
+                            <div class="alert alert-danger display-hide">
+                                <button class="close" data-close="alert"></button>
+                                <span>Enter any username and password. </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="username" required/> </div>
+                                <div class="col-xs-6">
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Password" name="password" required/> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="rem-password">
+                                        <label class="rememberme mt-checkbox mt-checkbox-outline">
+                                            <input type="checkbox" name="remember" value="1" /> Remember me
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 text-right">
+                                    <div class="forgot-password">
+                                        <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+                                    </div>
+                                    <button class="btn green" type="submit">Sign In</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- BEGIN FORGOT PASSWORD FORM -->
+                        <form class="forget-form" action="javascript:;" method="post">
+                            <h3 class="font-green">Forgot Password ?</h3>
+                            <p> Enter your e-mail address below to reset your password. </p>
+                            <div class="form-group">
+                                <input class="form-control placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
+                            <div class="form-actions">
+                                <button type="button" id="back-btn" class="btn green btn-outline">Back</button>
+                                <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
+                            </div>
+                        </form>
+                        <!-- END FORGOT PASSWORD FORM -->
+                    </div>
+                    <div class="login-footer">
+                        <div class="row bs-reset">
+                            <div class="col-xs-5 bs-reset">
+                                <ul class="login-social">
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-dribbble"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-7 bs-reset">
+                                <div class="login-copyright text-right">
+                                    <p>Copyright &copy; Keenthemes 2015</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END : LOGIN PAGE 5-1 -->
 
 		<!--[if lt IE 9]>
 		<script src="../assets/global/plugins/respond.min.js"></script>
 		<script src="../assets/global/plugins/excanvas.min.js"></script> 
 		<![endif]-->
 		<script src="lib/jquery/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<!--<script src="lib/jquery/js/plugins/jquery.uniform.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="lib/jquery/js/plugins/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/bootstrap/js/plugins/bootstrap-switch.js" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/jquery/js/plugins/jquery.backstretch.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/knockout/knockout-3.4.0.js" type="text/javascript" charset="utf-8"></script>
-		<script src="login.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/login-5.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 
 </html>

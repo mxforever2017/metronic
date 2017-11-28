@@ -1,98 +1,90 @@
-﻿<div class="header navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container-fluid">
-			<a class="brand" href="#">
-				<img src="lib/metronic/image/logo-big.png" alt="logo" />
-			</a>
-			<a href="javascript:void(0)" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-				<img src="lib/metronic/image/menu-toggler.png" />
-			</a>
-			<ul class="nav pull-right">
-				<li class="dropdown user">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<div style="width: 30px;height: 30px;display: inline-block;"><img alt="" src="../lib/metronic/image/person.jpeg" /></div>
-						<span class="username" data-bind="text:username"></span>
-						<i class="icon-angle-down"></i>
+﻿<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="index.html">
+            	<img src="../lib/plugins/layout/img/logo.png" alt="logo" class="logo-default"/>
+            </a>
+            <div class="menu-toggler sidebar-toggler">
+                <span></span>
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            <span></span>
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"> </div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<div class="page-container">
+	<div class="page-sidebar-wrapper">
+		<div class="page-sidebar navbar-collapse collapse">
+			<ul class="page-sidebar-menu" data-bind="foreach:menus" >
+				<!-- ko if:$index() == 0 -->
+				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <li class="sidebar-toggler-wrapper hide">
+                    <div class="sidebar-toggler">
+                        <span></span>
+                    </div>
+                </li>
+                <!-- END SIDEBAR TOGGLER BUTTON -->
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search ">
+                        <a href="javascript:;" class="remove">
+                            <i class="icon-close"></i>
+                        </a>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <a href="javascript:;" class="btn submit">
+                                    <i class="icon-magnifier"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+				<!-- /ko -->
+				<li class="" data-bind = "css:{'active': $index()==0}">
+					<a href="#" data-bind = "attr:{'href':$data.hash}">
+						<i class="icon-home"></i>
+						<span class="title" data-bind="text:$data.title">一级菜单</span>
+						
+						<span class="selected"></span>
+						
 					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#"><i class="icon-user"></i> My Profile</a>
-						</li>
-						<li>
-							<a href="#"><i class="icon-calendar"></i> My Calendar</a>
-						</li>
-						<li>
-							<a href="#"><i class="icon-envelope"></i> My Inbox(3)</a>
-						</li>
-						<li>
-							<a href="#"><i class="icon-tasks"></i> My Tasks</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a>
-						</li>
-						<li>
-							<a data-bind = "click:logout" href="#"><i class="icon-key"></i> Log Out</a>
+					<!-- ko if:$data.children -->
+					<ul class="sub-menu" data-bind = "foreach:$data.children" >
+						<li data-bind = "css:{'active':$data.isActive}">
+							<a href="#" data-bind="text:$data.title,attr:{'href':$data.hash}"></a>
 						</li>
 					</ul>
+					<!-- /ko -->
 				</li>
 			</ul>
 		</div>
 	</div>
-</div>
-
-<div class="page-container">
-	<div class="page-sidebar nav-collapse collapse">
-		<ul class="page-sidebar-menu" data-bind="foreach:menus" >
-			<!-- ko if:$index() == 0 -->
-			<li>
-				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-				<div class="sidebar-toggler hidden-phone"></div>
-				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-			</li>
-			<li>
-				<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-				<form class="sidebar-search">
-					<div class="input-box">
-						<a href="javascript:;" class="remove"></a>
-						<input type="text" placeholder="Search..." />
-						<input type="button" class="submit" value=" " />
-					</div>
-				</form>
-				<!-- END RESPONSIVE QUICK SEARCH FORM -->
-			</li>
-			<!-- /ko -->
-			<li class="" data-bind = "css:{'active': $index()==0}">
-				<a href="#" data-bind = "attr:{'href':$data.hash}">
-					<i class="icon-home"></i>
-					<span class="title" data-bind="text:$data.title">一级菜单</span>
-					
-					<span class="selected"></span>
-					
-				</a>
-				<!-- ko if:$data.children -->
-				<ul class="sub-menu" data-bind = "foreach:$data.children" >
-					<li data-bind = "css:{'active':$data.isActive}">
-						<a href="#" data-bind="text:$data.title,attr:{'href':$data.hash}"></a>
-					</li>
-				</ul>
-				<!-- /ko -->
-			</li>
-		</ul>
-	</div>
-	<div class="page-content" data-bind="router:{ transition:'entrance'}">
+	<div class="page-content-wrapper">
+		<div class="page-content" data-bind="router:{ transition:'entrance'}">
+		</div>
 	</div>
 </div>
-
 <!-- BEGIN FOOTER -->
-<div class="footer navbar-fixed-bottom">
-	<div class="footer-inner" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
-		<span data-bind="text:copyright"></span> &copy;
+<div class="page-footer">
+	<div class="page-footer-inner">
+		2014 &copy; Metronic by keenthemes.
 	</div>
-	<div class="footer-tools">
-		<span class="go-top">
-			<i class="icon-angle-up"></i>
-		</span>
+	<div class="scroll-to-top">
+		<i class="icon-arrow-up"></i>
 	</div>
 </div>
 <!-- END FOOTER -->
