@@ -31,19 +31,18 @@
 		self.menus = ko.observableArray([]);
 
 		self.activate = function() {
-			if(localStorage.getItem("isLogin") == null) {
-				location.href = "../login.html"
-			}
 			var menu = [{
 				moduleId: "hello/index",
 				nav: 1,
 				route: "head_desktop",
-				title: "Dashboard"
+				title: "Dashboard",
+				icon:'icon-home',
 			}, {
 				moduleId: "",
 				nav: 0,
 				route: "#",
 				title: "UI Features",
+				icon:'icon-diamond',
 				children: [{
 					moduleId: "UI Features/General/index",
 					nav: 1,
